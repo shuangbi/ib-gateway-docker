@@ -6,11 +6,11 @@
 # production image and consume unnecessary space.
 #
 
-FROM ubuntu:22.04 as setup
+FROM --platform=linux/amd64 ubuntu:22.04 as setup
 
-ENV IB_GATEWAY_VERSION=10.19.1j
+ENV IB_GATEWAY_VERSION=10.45.1f
 ENV IB_GATEWAY_RELEASE_CHANNEL=stable
-ENV IBC_VERSION=3.15.2
+ENV IBC_VERSION=3.23.0
 
 # Prepare system
 RUN apt-get update -y
@@ -48,9 +48,9 @@ COPY ./scripts /root/scripts
 # Build Stage: build production image
 #
 
-FROM ubuntu:22.04
+FROM --platform=linux/amd64 ubuntu:22.04
 
-ENV IB_GATEWAY_VERSION=10.19.1j
+ENV IB_GATEWAY_VERSION=10.45.1f
 
 WORKDIR /root
 

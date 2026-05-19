@@ -2,9 +2,12 @@ version: "3.4"
 
 services:
   ib-gateway:
+    platform: linux/amd64
     restart: always
     build:
-      context: ./latest
+      context: ./stable
+      platforms:
+        - linux/amd64
     environment:
       TWS_USERID: ${TWS_USERID}
       TWS_PASSWORD: ${TWS_PASSWORD}
