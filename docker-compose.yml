@@ -1,4 +1,5 @@
-version: "3.4"
+# IB Gateway stable image — build from ./stable
+# Usage: cp .env.example .env && docker compose up -d --build
 
 services:
   ib-gateway:
